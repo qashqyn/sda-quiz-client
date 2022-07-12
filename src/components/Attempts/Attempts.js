@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { Col,  Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getAttempts } from "../../actions/quiz";
 import AttemptCard from "./AttemptCard";
@@ -12,7 +12,7 @@ const Attempts = () => {
         if(!attempts){
             dispatch(getAttempts());
         }
-    }, [dispatch])
+    }, [dispatch, attempts])
 
     return (
         <div id="attempts">

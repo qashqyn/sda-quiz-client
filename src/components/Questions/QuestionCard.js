@@ -17,7 +17,7 @@ const QuestionCard = ({show=false,question, ans, setAnswer, showAll=false, index
         if(userAns){
             setAnswer(index, userAns);
         }
-    }, [userAns]);
+    }, [userAns, index]);
 
     useEffect(()=>{
         if(question && options.length === 0){
@@ -27,10 +27,10 @@ const QuestionCard = ({show=false,question, ans, setAnswer, showAll=false, index
             .map(({option})=>option);
             setOptions(ops);
         }
-    }, [question])
+    }, [question, options])
     const [userCorrect, setUserCorrect] = useState(false);
     useEffect(()=>{
-        if(ans){
+        if(ans && options.length>0){
             let crct = false;
             for (let i = 0; i < options.length; i++) {
                 const option = options[i];
@@ -41,7 +41,7 @@ const QuestionCard = ({show=false,question, ans, setAnswer, showAll=false, index
             }
             setUserCorrect(crct);
         }
-    }, [ans])
+    }, [ans, options])
 
     return show && (
         <div className={`question-card mb-5 ${showAll ? (userCorrect ? 'correct' : 'wrong') : ''}`}>
