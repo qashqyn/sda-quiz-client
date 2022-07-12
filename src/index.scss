@@ -1,0 +1,31 @@
+@import "~bootstrap/scss/bootstrap";
+
+body{
+    background-color: #1b1440;
+    color: white;
+}
+.progress{
+    border-radius: 16px;
+    height: 32px;
+    background: none;
+    border: #6449f2 2px solid;
+    .progress-bar{
+        background-color: #6449f2!important;
+        background: linear-gradient(to right, #8434e2,#b35bc4);
+        border-bottom-right-radius: 16px;
+        border-top-right-radius: 16px;
+    }
+}
+a.btn, .close-btn{
+    border: white 1px solid;
+    background: none;
+    border-radius: 16px;
+    color: white;
+    font-size: 24px;
+    &:hover{
+        transition: all .2s linear;
+        background-color: #6449f2;
+        color: white;
+        border-color: #6449f2;
+    }
+}

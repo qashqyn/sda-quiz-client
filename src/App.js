@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from 'react-bootstrap';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Attempts from './components/Attempts/Attempts';
+import Home from './components/Home/Home';
+import QuestionForm from './components/Questions/QuestionForm';
+import Quiz from './components/Quiz/Quiz';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Container>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" exact element={<Home />} />
+                    <Route path="/quiz" exact element={<Quiz />} />
+                    <Route path="/attempts" exact element={<Attempts />} />
+                    <Route path="/question-form" exact element={<QuestionForm />} />
+                </Routes>
+            </BrowserRouter>
+        </Container>
+    );
 }
 
 export default App;
